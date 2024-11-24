@@ -1,0 +1,123 @@
+/* Importando a fonte Ubuntu */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+/* Estilo geral */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #f0f4f8; /* Fundo claro */
+    color: #333;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Cabeçalho */
+h1 {
+    margin: 20px 0;
+    font-size: 2rem;
+    color: #0066cc; /* Azul elegante */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabela */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    font-family: 'Ubuntu', sans-serif;
+    text-align: left; /* Alinha texto à esquerda */
+}
+
+thead {
+    background-color: #0066cc; /* Cabeçalho azul elegante */
+    color: #fff;
+    font-weight: bold;
+}
+
+th, td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.9rem; /* Tamanho reduzido */
+}
+
+tbody tr:hover {
+    background-color: #f0f8ff; /* Fundo azul claro ao passar o mouse */
+    transition: background-color 0.3s ease;
+}
+
+td:last-child {
+    text-align: center; /* Centraliza a coluna de ações */
+}
+
+/* Botões de ação */
+a {
+    text-decoration: none;
+    color: #0066cc; /* Link azul elegante */
+    font-weight: bold;
+    margin-right: 10px; /* Espaço entre botões */
+}
+
+a:hover {
+    color: #004a99; /* Azul mais escuro ao passar o mouse */
+}
+
+button {
+    background-color: #ff4d4d; /* Botão vermelho para apagar */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-left: 5px; /* Espaço entre os botões */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #cc0000; /* Vermelho mais escuro ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento */
+}
+
+/* Links de navegação */
+.nav-links {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.nav-links a {
+    margin: 0 10px;
+    padding: 10px 15px;
+    background-color: #0066cc; /* Fundo azul elegante */
+    color: #fff;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links a:hover {
+    background-color: #004a99; /* Azul mais escuro */
+    transform: scale(1.05); /* Leve aumento */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+        font-size: 0.8rem; /* Reduz o tamanho da fonte */
+    }
+
+    th, td {
+        padding: 8px 10px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}
