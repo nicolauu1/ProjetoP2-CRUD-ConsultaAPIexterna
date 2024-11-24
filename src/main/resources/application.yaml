@@ -3,7 +3,7 @@ server:
 
 spring:
     datasource:
-        url: jdbc:postgresql://dpg-ct1o5ptumphs738rcqlg-a.oregon-postgres.render.com
+        url: jdbc:postgresql://dpg-ct1o5ptumphs738rcqlg-a.oregon-postgres.render.com:5432/nicolasg
         username: nicolasg_user
         password: yiDaAEvPgs04T0hGlBVWiF4PuO85JEu4
         driver-class-name: org.postgresql.Driver
