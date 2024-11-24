@@ -14,7 +14,7 @@
     <groupId>com.bd</groupId>
     <artifactId>sitebd</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging> <!-- Alterado para JAR -->
+    <packaging>war</packaging> <!-- Alterado para JAR -->
     <name>sitebd</name>
     <description>Aula Banco de dados</description>
 
