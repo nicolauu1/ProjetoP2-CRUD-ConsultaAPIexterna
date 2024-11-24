@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alteração de Dados</title>
+    <script>
+        function consultarEndereco() {
+            let cep = document.getElementById("cep").value;
+            if (cep) {
+                fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                    .then(response => response.json())
+                    .then(dados => {
+                        if (dados.erro) {
+                            alert("CEP não encontrado.");
+                        } else {
+                            document.getElementById("endereco").value = `${dados.logradouro}, ${dados.bairro}, ${dados.localidade} - ${dados.uf}`;
+                            document.getElementById("bairro").value = dados.bairro;
+                            document.getElementById("cidade").value = dados.localidade;
+                            document.getElementById("estado").value = dados.uf;
+                        }
+                    })
+                    .catch(error => console.log('Erro ao consultar CEP: ', error));
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Alterar Dados do Cliente</h1>
+    
+    <form class="form-container" th:action="@{'/atualizar/' + ${id}}" method="post" th:object="${cliente}">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" th:field="*{nome}" placeholder="Digite o nome" required>
+
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" th:field="*{cpf}" placeholder="Digite o CPF" required 
+               pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato do CPF: xxx.xxx.xxx-xx">
+
+        <label for="nomeProduto">Nome do Produto:</label>
+        <input type="text" id="nomeProduto" th:field="*{nomeProduto}" placeholder="Nome do produto" required>
+
+        <label for="codigoProduto">Código do Produto:</label>
+        <input type="text" id="codigoProduto" th:field="*{codigoProduto}" placeholder="Código do produto" required>
+
+        <label for="tamanho">Tamanho:</label>
+        <input type="text" id="tamanho" th:field="*{tamanho}" placeholder="Tamanho do produto" required>
+
+        <label for="cor">Cor:</label>
+        <input type="text" id="cor" th:field="*{cor}" placeholder="Cor do produto" required>
+
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" name="cep" th:field="*{cep}" placeholder="Digite o CEP" onblur="consultarEndereco()" required 
+               pattern="\d{5}-\d{3}" title="Formato do CEP: 00000-000">
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" th:field="*{endereco}" placeholder="Endereço completo" readonly>
+
+        <label for="bairro">Bairro:</label>
+        <input type="text" id="bairro" th:field="*{bairro}" placeholder="Bairro" readonly>
+
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" th:field="*{cidade}" placeholder="Cidade" readonly>
+
+        <label for="estado">Estado:</label>
+        <input type="text" id="estado" th:field="*{estado}" placeholder="Estado" readonly>
+
+        <button type="submit" class="btn-submit">Atualizar</button>
+    </form>
+
+    <div class="nav-links">
+        <a th:href="@{/}" class="btn-back">Voltar para a Página Inicial</a>
+    </div>
+</body>
+</html>

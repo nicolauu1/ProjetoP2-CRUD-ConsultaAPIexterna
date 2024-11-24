@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Clientes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Listagem de Clientes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Nome do Produto</th>
+                <th>Código do Produto</th>
+                <th>Tamanho</th>
+                <th>Cor</th>
+                <th>Endereço</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="cliente : ${clientes}">
+                <!-- Exibe o ID do cliente -->
+                <td th:text="${cliente.id}"></td> 
+
+                <!-- Exibe o Nome do cliente -->
+                <td th:text="${cliente.nome}"></td>
+
+                <!-- Exibe o CPF do cliente -->
+                <td th:text="${cliente.cpf}"></td>
+
+                <!-- Exibe o Nome do Produto -->
+                <td th:text="${cliente.nomeProduto}"></td>
+
+                <!-- Exibe o Código do Produto -->
+                <td th:text="${cliente.codigoProduto}"></td>
+
+                <!-- Exibe o Tamanho do Produto -->
+                <td th:text="${cliente.tamanho}"></td>
+
+                <!-- Exibe a Cor do Produto -->
+                <td th:text="${cliente.cor}"></td>
+
+                <!-- Exibe o Endereço -->
+                <td th:text="${cliente.endereco}"></td>
+
+                <!-- Exibe o Bairro -->
+                <td th:text="${cliente.bairro}"></td>
+
+                <!-- Exibe a Cidade -->
+                <td th:text="${cliente.cidade}"></td>
+
+                <!-- Exibe o Estado -->
+                <td th:text="${cliente.estado}"></td>
+
+                <td>
+                    <!-- Link para atualizar o cliente -->
+                    <a th:href="@{'/atualizar/' + ${cliente.id}}">Atualizar</a>
+                    <form th:action="@{'/deletar/' + ${cliente.id}}" method="post" style="display:inline;">
+                        <button type="submit">Apagar</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>    
+
+    <div class="nav-links">
+        <a th:href="@{/}">Voltar</a>
+    </div>
+</body>
+</html>
